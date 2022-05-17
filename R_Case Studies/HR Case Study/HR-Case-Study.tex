@@ -1,0 +1,1958 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={HR-Case-Study.R},
+  pdfauthor={Souvik},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\title{HR-Case-Study.R}
+\author{Souvik}
+\date{2020-12-03}
+
+\begin{document}
+\maketitle
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{setwd}\NormalTok{(}\StringTok{"C:/Users/Souvik/Downloads/PPA"}\NormalTok{)}
+
+\CommentTok{#loading the required packages }
+\KeywordTok{library}\NormalTok{(corrplot)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## corrplot 0.84 loaded
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(car)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: carData
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(ROCR)}
+\KeywordTok{library}\NormalTok{(caret)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: lattice
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: ggplot2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(caTools)}
+\KeywordTok{library}\NormalTok{(psych)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'psych'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:ggplot2':
+## 
+##     %+%, alpha
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:car':
+## 
+##     logit
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(rpart)}
+\KeywordTok{library}\NormalTok{(rpart.plot)}
+\KeywordTok{library}\NormalTok{(e1071)}
+\KeywordTok{library}\NormalTok{(rattle.data)}
+\KeywordTok{library}\NormalTok{(rattle)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: tibble
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: bitops
+\end{verbatim}
+
+\begin{verbatim}
+## Rattle: A free graphical interface for data science with R.
+## Version 5.4.0 Copyright (c) 2006-2020 Togaware Pty Ltd.
+## Type 'rattle()' to shake, rattle, and roll your data.
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'rattle'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:rattle.data':
+## 
+##     locationsAUS, weather, weatherAUS
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#loading the datasets }
+\NormalTok{HR <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"promotion_tr.csv"}\NormalTok{, }\DataTypeTok{stringsAsFactors =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{summary}\NormalTok{(HR)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   employee_id                department          region     
+##  Min.   :    1   Sales & Marketing:16840   region_2 :12343  
+##  1st Qu.:19670   Operations       :11348   region_22: 6428  
+##  Median :39226   Procurement      : 7138   region_7 : 4843  
+##  Mean   :39196   Technology       : 7138   region_15: 2808  
+##  3rd Qu.:58731   Analytics        : 5352   region_13: 2648  
+##  Max.   :78298   Finance          : 2536   region_26: 2260  
+##                  (Other)          : 4456   (Other)  :23478  
+##             education     gender    recruitment_channel no_of_trainings 
+##                  : 2409   f:16312   other   :30446      Min.   : 1.000  
+##  Bachelor's      :36669   m:38496   referred: 1142      1st Qu.: 1.000  
+##  Below Secondary :  805             sourcing:23220      Median : 1.000  
+##  Master's & above:14925                                 Mean   : 1.253  
+##                                                         3rd Qu.: 1.000  
+##                                                         Max.   :10.000  
+##                                                                         
+##       age       previous_year_rating length_of_service KPIs_met..80.  
+##  Min.   :20.0   Min.   :1.000        Min.   : 1.000    Min.   :0.000  
+##  1st Qu.:29.0   1st Qu.:3.000        1st Qu.: 3.000    1st Qu.:0.000  
+##  Median :33.0   Median :3.000        Median : 5.000    Median :0.000  
+##  Mean   :34.8   Mean   :3.329        Mean   : 5.866    Mean   :0.352  
+##  3rd Qu.:39.0   3rd Qu.:4.000        3rd Qu.: 7.000    3rd Qu.:1.000  
+##  Max.   :60.0   Max.   :5.000        Max.   :37.000    Max.   :1.000  
+##                 NA's   :4124                                          
+##   awards_won.      avg_training_score  is_promoted     
+##  Min.   :0.00000   Min.   :39.00      Min.   :0.00000  
+##  1st Qu.:0.00000   1st Qu.:51.00      1st Qu.:0.00000  
+##  Median :0.00000   Median :60.00      Median :0.00000  
+##  Mean   :0.02317   Mean   :63.39      Mean   :0.08517  
+##  3rd Qu.:0.00000   3rd Qu.:76.00      3rd Qu.:0.00000  
+##  Max.   :1.00000   Max.   :99.00      Max.   :1.00000  
+## 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{HR}\OperatorTok{$}\NormalTok{education <-}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(HR}\OperatorTok{$}\NormalTok{education)}
+\KeywordTok{table}\NormalTok{(HR}\OperatorTok{$}\NormalTok{education)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##                        Bachelor's  Below Secondary Master's & above 
+##             2409            36669              805            14925
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{table}\NormalTok{(HR}\OperatorTok{$}\NormalTok{recruitment_channel)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##    other referred sourcing 
+##    30446     1142    23220
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{table}\NormalTok{(HR}\OperatorTok{$}\NormalTok{is_promoted)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##     0     1 
+## 50140  4668
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Cleaning the dataset by removing and imputing rows }
+
+\CommentTok{#mode imputation on column previous year rating}
+\KeywordTok{table}\NormalTok{(HR}\OperatorTok{$}\NormalTok{previous_year_rating)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##     1     2     3     4     5 
+##  6223  4225 18618  9877 11741
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{HR}\OperatorTok{$}\NormalTok{previous_year_rating[}\KeywordTok{is.na}\NormalTok{(HR}\OperatorTok{$}\NormalTok{previous_year_rating)] <-}\StringTok{ }\DecValTok{3}
+\KeywordTok{table}\NormalTok{(HR}\OperatorTok{$}\NormalTok{previous_year_rating)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##     1     2     3     4     5 
+##  6223  4225 22742  9877 11741
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{summary}\NormalTok{(HR}\OperatorTok{$}\NormalTok{previous_year_rating)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   1.000   3.000   3.000   3.304   4.000   5.000
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#NA imputing on empty cells on column education}
+\NormalTok{HR[}\KeywordTok{which}\NormalTok{(HR}\OperatorTok{$}\NormalTok{education}\OperatorTok{==}\StringTok{""}\NormalTok{),]}\OperatorTok{$}\NormalTok{education <-}\OtherTok{NA}
+\KeywordTok{summary}\NormalTok{(HR}\OperatorTok{$}\NormalTok{education)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                        Bachelor's  Below Secondary Master's & above 
+##                0            36669              805            14925 
+##             NA's 
+##             2409
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#removing all NA rows from the dataset}
+\NormalTok{HR <-}\StringTok{ }\KeywordTok{na.omit}\NormalTok{(HR)}
+\KeywordTok{summary}\NormalTok{(HR)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   employee_id                department          region     
+##  Min.   :    1   Sales & Marketing:15265   region_2 :11497  
+##  1st Qu.:19652   Operations       :11122   region_22: 6108  
+##  Median :39207   Procurement      : 7066   region_7 : 4624  
+##  Mean   :39184   Technology       : 7039   region_15: 2617  
+##  3rd Qu.:58739   Analytics        : 5015   region_13: 2592  
+##  Max.   :78298   Finance          : 2500   region_26: 2160  
+##                  (Other)          : 4392   (Other)  :22801  
+##             education     gender    recruitment_channel no_of_trainings 
+##                  :    0   f:15921   other   :29061      Min.   : 1.000  
+##  Bachelor's      :36669   m:36478   referred: 1134      1st Qu.: 1.000  
+##  Below Secondary :  805             sourcing:22204      Median : 1.000  
+##  Master's & above:14925                                 Mean   : 1.256  
+##                                                         3rd Qu.: 1.000  
+##                                                         Max.   :10.000  
+##                                                                         
+##       age        previous_year_rating length_of_service KPIs_met..80.   
+##  Min.   :20.00   Min.   :1.000        Min.   : 1.000    Min.   :0.0000  
+##  1st Qu.:29.00   1st Qu.:3.000        1st Qu.: 3.000    1st Qu.:0.0000  
+##  Median :33.00   Median :3.000        Median : 5.000    Median :0.0000  
+##  Mean   :34.98   Mean   :3.313        Mean   : 5.933    Mean   :0.3568  
+##  3rd Qu.:39.00   3rd Qu.:4.000        3rd Qu.: 8.000    3rd Qu.:1.0000  
+##  Max.   :60.00   Max.   :5.000        Max.   :37.000    Max.   :1.0000  
+##                                                                         
+##   awards_won.      avg_training_score  is_promoted     
+##  Min.   :0.00000   Min.   :39.00      Min.   :0.00000  
+##  1st Qu.:0.00000   1st Qu.:51.00      1st Qu.:0.00000  
+##  Median :0.00000   Median :60.00      Median :0.00000  
+##  Mean   :0.02317   Mean   :63.63      Mean   :0.08676  
+##  3rd Qu.:0.00000   3rd Qu.:76.00      3rd Qu.:0.00000  
+##  Max.   :1.00000   Max.   :99.00      Max.   :1.00000  
+## 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#checking correlation between the variables }
+\NormalTok{CR <-}\StringTok{ }\KeywordTok{cor}\NormalTok{(HR[}\KeywordTok{c}\NormalTok{(}\StringTok{"no_of_trainings"}\NormalTok{,}\StringTok{"age"}\NormalTok{,}\StringTok{"previous_year_rating"}\NormalTok{,}
+               \StringTok{"length_of_service"}\NormalTok{,}\StringTok{"KPIs_met..80."}\NormalTok{,}\StringTok{"awards_won."}\NormalTok{,}
+               \StringTok{"avg_training_score"}\NormalTok{,}\StringTok{"is_promoted"}\NormalTok{)])}
+\NormalTok{CR}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                      no_of_trainings          age previous_year_rating
+## no_of_trainings          1.000000000 -0.082600969          -0.06266236
+## age                     -0.082600969  1.000000000           0.02543949
+## previous_year_rating    -0.062662360  0.025439493           1.00000000
+## length_of_service       -0.057844984  0.652378704           0.02167519
+## KPIs_met..80.           -0.047343765 -0.030966550           0.33851265
+## awards_won.             -0.007658649 -0.008208638           0.02677259
+## avg_training_score       0.041124495 -0.060652381           0.06673566
+## is_promoted             -0.025388665 -0.018920186           0.15292145
+##                      length_of_service KPIs_met..80.  awards_won.
+## no_of_trainings            -0.05784498   -0.04734376 -0.007658649
+## age                         0.65237870   -0.03096655 -0.008208638
+## previous_year_rating        0.02167519    0.33851265  0.026772591
+## length_of_service           1.00000000   -0.08210874 -0.040140083
+## KPIs_met..80.              -0.08210874    1.00000000  0.095554930
+## awards_won.                -0.04014008    0.09555493  1.000000000
+## avg_training_score         -0.04532875    0.07289898  0.072069289
+## is_promoted                -0.01216673    0.21993362  0.195451465
+##                      avg_training_score is_promoted
+## no_of_trainings              0.04112450 -0.02538867
+## age                         -0.06065238 -0.01892019
+## previous_year_rating         0.06673566  0.15292145
+## length_of_service           -0.04532875 -0.01216673
+## KPIs_met..80.                0.07289898  0.21993362
+## awards_won.                  0.07206929  0.19545147
+## avg_training_score           1.00000000  0.18048937
+## is_promoted                  0.18048937  1.00000000
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{corrplot}\NormalTok{(CR, }\DataTypeTok{type =} \StringTok{"full"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{HR-Case-Study_files/figure-latex/unnamed-chunk-1-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{corrplot}\NormalTok{(CR,}\DataTypeTok{method =} \StringTok{"number"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{HR-Case-Study_files/figure-latex/unnamed-chunk-1-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{corrplot.mixed}\NormalTok{(CR)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{HR-Case-Study_files/figure-latex/unnamed-chunk-1-3.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{corrplot.mixed}\NormalTok{(CR,  }\DataTypeTok{tl.col =} \StringTok{"black"}\NormalTok{, }\DataTypeTok{lower.col =} \StringTok{"black"}\NormalTok{,}\DataTypeTok{number.cex =} \FloatTok{.7}\NormalTok{,}\DataTypeTok{tl.cex=}\DecValTok{1}\NormalTok{ )}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{HR-Case-Study_files/figure-latex/unnamed-chunk-1-4.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#To create dummy variables}
+\NormalTok{HR}\OperatorTok{$}\NormalTok{gender_male<-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(HR}\OperatorTok{$}\NormalTok{gender }\OperatorTok{==}\StringTok{ "m"}\NormalTok{, }\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{)}
+\NormalTok{HR}\OperatorTok{$}\NormalTok{gender_female<-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(HR}\OperatorTok{$}\NormalTok{gender }\OperatorTok{==}\StringTok{ "f"}\NormalTok{, }\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{)}
+
+\NormalTok{HR}\OperatorTok{$}\NormalTok{recruitment_channel_sourcing<-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(HR}\OperatorTok{$}\NormalTok{recruitment_channel }\OperatorTok{==}\StringTok{ "sourcing"}\NormalTok{, }\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{)}
+\NormalTok{HR}\OperatorTok{$}\NormalTok{recruitment_channel_other<-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(HR}\OperatorTok{$}\NormalTok{recruitment_channel }\OperatorTok{==}\StringTok{ "other"}\NormalTok{, }\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{)}
+\NormalTok{HR}\OperatorTok{$}\NormalTok{recruitment_channel_referred<-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(HR}\OperatorTok{$}\NormalTok{recruitment_channel }\OperatorTok{==}\StringTok{ "referred"}\NormalTok{, }\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{)}
+
+\NormalTok{HR}\OperatorTok{$}\NormalTok{education_bachelors<-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(HR}\OperatorTok{$}\NormalTok{education }\OperatorTok{==}\StringTok{ "Bachelor's"}\NormalTok{, }\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{)}
+\NormalTok{HR}\OperatorTok{$}\NormalTok{education_masters<-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(HR}\OperatorTok{$}\NormalTok{education }\OperatorTok{==}\StringTok{ "Master's & above"}\NormalTok{, }\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{)}
+\NormalTok{HR}\OperatorTok{$}\NormalTok{education_BelowSecondary<-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(HR}\OperatorTok{$}\NormalTok{education }\OperatorTok{==}\StringTok{ "Below Secondary"}\NormalTok{, }\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{)}
+
+
+\NormalTok{CR1 <-}\StringTok{ }\KeywordTok{cor}\NormalTok{(HR[}\KeywordTok{c}\NormalTok{(}\StringTok{"no_of_trainings"}\NormalTok{,}\StringTok{"age"}\NormalTok{,}\StringTok{"previous_year_rating"}\NormalTok{,}
+               \StringTok{"length_of_service"}\NormalTok{,}\StringTok{"KPIs_met..80."}\NormalTok{,}\StringTok{"awards_won."}\NormalTok{,}
+               \StringTok{"avg_training_score"}\NormalTok{,}\StringTok{"is_promoted"}\NormalTok{,}\StringTok{"gender_male"}\NormalTok{,}\StringTok{"gender_female"}\NormalTok{,}
+               \StringTok{"recruitment_channel_sourcing"}\NormalTok{,}\StringTok{"recruitment_channel_other"}\NormalTok{,}
+               \StringTok{"recruitment_channel_referred"}\NormalTok{,}\StringTok{"education_bachelors"}\NormalTok{,}\StringTok{"education_masters"}\NormalTok{,}
+               \StringTok{"education_BelowSecondary"}\NormalTok{)])}
+\NormalTok{CR1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                              no_of_trainings          age previous_year_rating
+## no_of_trainings                  1.000000000 -0.082600969         -0.062662360
+## age                             -0.082600969  1.000000000          0.025439493
+## previous_year_rating            -0.062662360  0.025439493          1.000000000
+## length_of_service               -0.057844984  0.652378704          0.021675186
+## KPIs_met..80.                   -0.047343765 -0.030966550          0.338512652
+## awards_won.                     -0.007658649 -0.008208638          0.026772591
+## avg_training_score               0.041124495 -0.060652381          0.066735661
+## is_promoted                     -0.025388665 -0.018920186          0.152921451
+## gender_male                      0.086653908 -0.003206708         -0.022217559
+## gender_female                   -0.086653908  0.003206708          0.022217559
+## recruitment_channel_sourcing    -0.009306297 -0.003725711         -0.004501268
+## recruitment_channel_other        0.013542868  0.017017528         -0.014720747
+## recruitment_channel_referred    -0.014653279 -0.045473009          0.065566792
+## education_bachelors              0.036525399 -0.307610597         -0.022631812
+## education_masters               -0.038178377  0.362175613          0.023898981
+## education_BelowSecondary         0.003984614 -0.182706687         -0.003360493
+##                              length_of_service KPIs_met..80.   awards_won.
+## no_of_trainings                   -0.057844984  -0.047343765 -0.0076586487
+## age                                0.652378704  -0.030966550 -0.0082086384
+## previous_year_rating               0.021675186   0.338512652  0.0267725907
+## length_of_service                  1.000000000  -0.082108741 -0.0401400834
+## KPIs_met..80.                     -0.082108741   1.000000000  0.0955549296
+## awards_won.                       -0.040140083   0.095554930  1.0000000000
+## avg_training_score                -0.045328751   0.072898978  0.0720692892
+## is_promoted                       -0.012166730   0.219933615  0.1954514650
+## gender_male                       -0.011311920  -0.035892880  0.0027207314
+## gender_female                      0.011311920   0.035892880 -0.0027207314
+## recruitment_channel_sourcing       0.002921794  -0.007046226 -0.0067852896
+## recruitment_channel_other          0.006590607  -0.006811937  0.0057949730
+## recruitment_channel_referred      -0.032433414   0.047195914  0.0032493104
+## education_bachelors               -0.209939779  -0.007346583  0.0020588354
+## education_masters                  0.246854792   0.004391178 -0.0007836579
+## education_BelowSecondary          -0.123502688   0.011263916 -0.0047967687
+##                              avg_training_score   is_promoted  gender_male
+## no_of_trainings                     0.041124495 -2.538867e-02  0.086653908
+## age                                -0.060652381 -1.892019e-02 -0.003206708
+## previous_year_rating                0.066735661  1.529215e-01 -0.022217559
+## length_of_service                  -0.045328751 -1.216673e-02 -0.011311920
+## KPIs_met..80.                       0.072898978  2.199336e-01 -0.035892880
+## awards_won.                         0.072069289  1.954515e-01  0.002720731
+## avg_training_score                  1.000000000  1.804894e-01 -0.018414671
+## is_promoted                         0.180489370  1.000000e+00 -0.010575200
+## gender_male                        -0.018414671 -1.057520e-02  1.000000000
+## gender_female                       0.018414671  1.057520e-02 -1.000000000
+## recruitment_channel_sourcing       -0.007302792 -4.951526e-05  0.003988762
+## recruitment_channel_other          -0.001505156 -5.355196e-03 -0.006516994
+## recruitment_channel_referred        0.029941240  1.845949e-02  0.008713816
+## education_bachelors                -0.023555948 -2.563624e-02  0.026034704
+## education_masters                   0.020598515  2.646089e-02 -0.022356179
+## education_BelowSecondary            0.012194974 -1.565407e-03 -0.014982373
+##                              gender_female recruitment_channel_sourcing
+## no_of_trainings               -0.086653908                -9.306297e-03
+## age                            0.003206708                -3.725711e-03
+## previous_year_rating           0.022217559                -4.501268e-03
+## length_of_service              0.011311920                 2.921794e-03
+## KPIs_met..80.                  0.035892880                -7.046226e-03
+## awards_won.                   -0.002720731                -6.785290e-03
+## avg_training_score             0.018414671                -7.302792e-03
+## is_promoted                    0.010575200                -4.951526e-05
+## gender_male                   -1.000000000                 3.988762e-03
+## gender_female                  1.000000000                -3.988762e-03
+## recruitment_channel_sourcing  -0.003988762                 1.000000e+00
+## recruitment_channel_other      0.006516994                -9.569110e-01
+## recruitment_channel_referred  -0.008713816                -1.275393e-01
+## education_bachelors           -0.026034704                -2.894690e-04
+## education_masters              0.022356179                -2.949599e-04
+## education_BelowSecondary       0.014982373                 2.161143e-03
+##                              recruitment_channel_other
+## no_of_trainings                            0.013542868
+## age                                        0.017017528
+## previous_year_rating                      -0.014720747
+## length_of_service                          0.006590607
+## KPIs_met..80.                             -0.006811937
+## awards_won.                                0.005794973
+## avg_training_score                        -0.001505156
+## is_promoted                               -0.005355196
+## gender_male                               -0.006516994
+## gender_female                              0.006516994
+## recruitment_channel_sourcing              -0.956911011
+## recruitment_channel_other                  1.000000000
+## recruitment_channel_referred              -0.165966145
+## education_bachelors                       -0.007203730
+## education_masters                          0.009736963
+## education_BelowSecondary                  -0.008885607
+##                              recruitment_channel_referred education_bachelors
+## no_of_trainings                              -0.014653279         0.036525399
+## age                                          -0.045473009        -0.307610597
+## previous_year_rating                          0.065566792        -0.022631812
+## length_of_service                            -0.032433414        -0.209939779
+## KPIs_met..80.                                 0.047195914        -0.007346583
+## awards_won.                                   0.003249310         0.002058835
+## avg_training_score                            0.029941240        -0.023555948
+## is_promoted                                   0.018459490        -0.025636244
+## gender_male                                   0.008713816         0.026034704
+## gender_female                                -0.008713816        -0.026034704
+## recruitment_channel_sourcing                 -0.127539332        -0.000289469
+## recruitment_channel_other                    -0.165966145        -0.007203730
+## recruitment_channel_referred                  1.000000000         0.025588268
+## education_bachelors                           0.025588268         1.000000000
+## education_masters                            -0.032256127        -0.963556789
+## education_BelowSecondary                      0.023010677        -0.190714412
+##                              education_masters education_BelowSecondary
+## no_of_trainings                  -0.0381783771              0.003984614
+## age                               0.3621756134             -0.182706687
+## previous_year_rating              0.0238989806             -0.003360493
+## length_of_service                 0.2468547915             -0.123502688
+## KPIs_met..80.                     0.0043911781              0.011263916
+## awards_won.                      -0.0007836579             -0.004796769
+## avg_training_score                0.0205985153              0.012194974
+## is_promoted                       0.0264608939             -0.001565407
+## gender_male                      -0.0223561791             -0.014982373
+## gender_female                     0.0223561791              0.014982373
+## recruitment_channel_sourcing     -0.0002949599              0.002161143
+## recruitment_channel_other         0.0097369632             -0.008885607
+## recruitment_channel_referred     -0.0322561273              0.023010677
+## education_bachelors              -0.9635567888             -0.190714412
+## education_masters                 1.0000000000             -0.078829811
+## education_BelowSecondary         -0.0788298108              1.000000000
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{corrplot}\NormalTok{(CR1, }\DataTypeTok{type =} \StringTok{"full"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{HR-Case-Study_files/figure-latex/unnamed-chunk-1-5.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{corrplot}\NormalTok{(CR1,}\DataTypeTok{method =} \StringTok{"number"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{HR-Case-Study_files/figure-latex/unnamed-chunk-1-6.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{corrplot.mixed}\NormalTok{(CR1)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{HR-Case-Study_files/figure-latex/unnamed-chunk-1-7.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{corrplot.mixed}\NormalTok{(CR1,  }\DataTypeTok{tl.col =} \StringTok{"black"}\NormalTok{, }\DataTypeTok{lower.col =} \StringTok{"black"}\NormalTok{,}\DataTypeTok{number.cex =} \FloatTok{.7}\NormalTok{,}\DataTypeTok{tl.cex=}\DecValTok{1}\NormalTok{ )}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{HR-Case-Study_files/figure-latex/unnamed-chunk-1-8.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Splitting of the dataset into training and testing}
+
+\NormalTok{split <-}\StringTok{ }\KeywordTok{sample.split}\NormalTok{(HR}\OperatorTok{$}\NormalTok{is_promoted, }\DataTypeTok{SplitRatio =} \FloatTok{0.7}\NormalTok{)}
+\NormalTok{HR_TR <-}\StringTok{ }\KeywordTok{subset}\NormalTok{(HR, split }\OperatorTok{==}\StringTok{ "TRUE"}\NormalTok{)}
+\NormalTok{HR_TS <-}\StringTok{ }\KeywordTok{subset}\NormalTok{(HR, split }\OperatorTok{==}\StringTok{ "FALSE"}\NormalTok{)}
+
+
+\CommentTok{#logistic regression models}
+\CommentTok{#adding variables at first }
+\NormalTok{model1 <-}\StringTok{ }\KeywordTok{glm}\NormalTok{(is_promoted }\OperatorTok{~}\StringTok{ }\NormalTok{no_of_trainings, }\DataTypeTok{data=}\NormalTok{HR_TR, }\DataTypeTok{family =}\NormalTok{ binomial)}
+\KeywordTok{summary}\NormalTok{(model1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## glm(formula = is_promoted ~ no_of_trainings, family = binomial, 
+##     data = HR_TR)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -0.4335  -0.4335  -0.4335  -0.4022   2.4473  
+## 
+## Coefficients:
+##                 Estimate Std. Error z value Pr(>|z|)    
+## (Intercept)     -2.16098    0.04577 -47.216  < 2e-16 ***
+## no_of_trainings -0.15648    0.03452  -4.534  5.8e-06 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 21638  on 36678  degrees of freedom
+## Residual deviance: 21615  on 36677  degrees of freedom
+## AIC: 21619
+## 
+## Number of Fisher Scoring iterations: 5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{model2 <-}\StringTok{ }\KeywordTok{glm}\NormalTok{(is_promoted }\OperatorTok{~}\StringTok{ }\NormalTok{no_of_trainings}\OperatorTok{+}\NormalTok{age, }\DataTypeTok{data=}\NormalTok{HR_TR, }\DataTypeTok{family =}\NormalTok{ binomial)}
+\KeywordTok{summary}\NormalTok{(model2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## glm(formula = is_promoted ~ no_of_trainings + age, family = binomial, 
+##     data = HR_TR)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -0.4570  -0.4398  -0.4292  -0.4079   2.4795  
+## 
+## Coefficients:
+##                 Estimate Std. Error z value Pr(>|z|)    
+## (Intercept)     -1.89558    0.10082 -18.802  < 2e-16 ***
+## no_of_trainings -0.16473    0.03469  -4.749 2.05e-06 ***
+## age             -0.00732    0.00249  -2.940  0.00328 ** 
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 21638  on 36678  degrees of freedom
+## Residual deviance: 21606  on 36676  degrees of freedom
+## AIC: 21612
+## 
+## Number of Fisher Scoring iterations: 5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{model3 <-}\StringTok{ }\KeywordTok{glm}\NormalTok{(is_promoted }\OperatorTok{~}\StringTok{ }\NormalTok{no_of_trainings}\OperatorTok{+}\NormalTok{age}\OperatorTok{+}\NormalTok{previous_year_rating, }\DataTypeTok{data=}\NormalTok{HR_TR, }
+              \DataTypeTok{family =}\NormalTok{ binomial)}
+\KeywordTok{summary}\NormalTok{(model3)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## glm(formula = is_promoted ~ no_of_trainings + age + previous_year_rating, 
+##     family = binomial, data = HR_TR)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -0.6496  -0.4765  -0.3735  -0.2916   2.7974  
+## 
+## Coefficients:
+##                       Estimate Std. Error z value Pr(>|z|)    
+## (Intercept)          -3.727069   0.122675 -30.382  < 2e-16 ***
+## no_of_trainings      -0.107290   0.035273  -3.042  0.00235 ** 
+## age                  -0.010696   0.002576  -4.153 3.29e-05 ***
+## previous_year_rating  0.519926   0.017608  29.528  < 2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 21638  on 36678  degrees of freedom
+## Residual deviance: 20628  on 36675  degrees of freedom
+## AIC: 20636
+## 
+## Number of Fisher Scoring iterations: 5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{model4 <-}\StringTok{ }\KeywordTok{glm}\NormalTok{(is_promoted }\OperatorTok{~}\StringTok{ }\NormalTok{no_of_trainings}\OperatorTok{+}\NormalTok{age}\OperatorTok{+}\NormalTok{previous_year_rating}\OperatorTok{+}\NormalTok{length_of_service, }
+              \DataTypeTok{data=}\NormalTok{HR_TR, }\DataTypeTok{family =}\NormalTok{ binomial)}
+\KeywordTok{summary}\NormalTok{(model4)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## glm(formula = is_promoted ~ no_of_trainings + age + previous_year_rating + 
+##     length_of_service, family = binomial, data = HR_TR)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -0.6483  -0.4763  -0.3731  -0.2919   2.7975  
+## 
+## Coefficients:
+##                       Estimate Std. Error z value Pr(>|z|)    
+## (Intercept)          -3.749466   0.129839 -28.878  < 2e-16 ***
+## no_of_trainings      -0.107304   0.035271  -3.042  0.00235 ** 
+## age                  -0.009550   0.003374  -2.830  0.00465 ** 
+## previous_year_rating  0.520185   0.017618  29.525  < 2e-16 ***
+## length_of_service    -0.003132   0.005995  -0.522  0.60138    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 21638  on 36678  degrees of freedom
+## Residual deviance: 20628  on 36674  degrees of freedom
+## AIC: 20638
+## 
+## Number of Fisher Scoring iterations: 5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{model5 <-}\StringTok{ }\KeywordTok{glm}\NormalTok{(is_promoted }\OperatorTok{~}\StringTok{ }\NormalTok{no_of_trainings}\OperatorTok{+}\NormalTok{age}\OperatorTok{+}\NormalTok{previous_year_rating}\OperatorTok{+}\NormalTok{length_of_service}
+              \OperatorTok{+}\NormalTok{KPIs_met..}\FloatTok{80.}\NormalTok{, }
+              \DataTypeTok{data=}\NormalTok{HR_TR, }\DataTypeTok{family =}\NormalTok{ binomial)}
+\KeywordTok{summary}\NormalTok{(model5)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## glm(formula = is_promoted ~ no_of_trainings + age + previous_year_rating + 
+##     length_of_service + KPIs_met..80., family = binomial, data = HR_TR)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -0.7644  -0.5149  -0.2879  -0.2495   2.8382  
+## 
+## Coefficients:
+##                       Estimate Std. Error z value Pr(>|z|)    
+## (Intercept)          -3.781885   0.131956 -28.660   <2e-16 ***
+## no_of_trainings      -0.077357   0.035922  -2.153   0.0313 *  
+## age                  -0.011229   0.003441  -3.264   0.0011 ** 
+## previous_year_rating  0.319313   0.018459  17.298   <2e-16 ***
+## length_of_service     0.013322   0.006082   2.190   0.0285 *  
+## KPIs_met..80.         1.337430   0.042911  31.167   <2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 21638  on 36678  degrees of freedom
+## Residual deviance: 19575  on 36673  degrees of freedom
+## AIC: 19587
+## 
+## Number of Fisher Scoring iterations: 6
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{model6 <-}\StringTok{ }\KeywordTok{glm}\NormalTok{(is_promoted }\OperatorTok{~}\StringTok{ }\NormalTok{no_of_trainings}\OperatorTok{+}\NormalTok{age}\OperatorTok{+}\NormalTok{previous_year_rating}\OperatorTok{+}\NormalTok{length_of_service}
+              \OperatorTok{+}\NormalTok{KPIs_met..}\FloatTok{80.}\OperatorTok{+}\NormalTok{awards_won., }
+              \DataTypeTok{data=}\NormalTok{HR_TR, }\DataTypeTok{family =}\NormalTok{ binomial)}
+\KeywordTok{summary}\NormalTok{(model6)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## glm(formula = is_promoted ~ no_of_trainings + age + previous_year_rating + 
+##     length_of_service + KPIs_met..80. + awards_won., family = binomial, 
+##     data = HR_TR)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -1.5369  -0.4810  -0.2793  -0.2388   2.8824  
+## 
+## Coefficients:
+##                       Estimate Std. Error z value Pr(>|z|)    
+## (Intercept)          -3.869031   0.134913 -28.678  < 2e-16 ***
+## no_of_trainings      -0.077617   0.036563  -2.123 0.033769 *  
+## age                  -0.014464   0.003535  -4.092 4.28e-05 ***
+## previous_year_rating  0.338620   0.018765  18.045  < 2e-16 ***
+## length_of_service     0.023368   0.006187   3.777 0.000159 ***
+## KPIs_met..80.         1.270599   0.043328  29.325  < 2e-16 ***
+## awards_won.           2.081999   0.076880  27.081  < 2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 21638  on 36678  degrees of freedom
+## Residual deviance: 18930  on 36672  degrees of freedom
+## AIC: 18944
+## 
+## Number of Fisher Scoring iterations: 6
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{model7 <-}\StringTok{ }\KeywordTok{glm}\NormalTok{(is_promoted }\OperatorTok{~}\StringTok{ }\NormalTok{no_of_trainings}\OperatorTok{+}\NormalTok{age}\OperatorTok{+}\NormalTok{previous_year_rating}\OperatorTok{+}\NormalTok{length_of_service}
+              \OperatorTok{+}\NormalTok{KPIs_met..}\FloatTok{80.}\OperatorTok{+}\NormalTok{awards_won.}\OperatorTok{+}\NormalTok{avg_training_score, }
+              \DataTypeTok{data=}\NormalTok{HR_TR, }\DataTypeTok{family =}\NormalTok{ binomial)}
+\KeywordTok{summary}\NormalTok{(model7)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## glm(formula = is_promoted ~ no_of_trainings + age + previous_year_rating + 
+##     length_of_service + KPIs_met..80. + awards_won. + avg_training_score, 
+##     family = binomial, data = HR_TR)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -1.8700  -0.4325  -0.2790  -0.1915   3.0220  
+## 
+## Coefficients:
+##                       Estimate Std. Error z value Pr(>|z|)    
+## (Intercept)          -6.799252   0.175297 -38.787  < 2e-16 ***
+## no_of_trainings      -0.177470   0.038548  -4.604 4.15e-06 ***
+## age                  -0.008769   0.003592  -2.441 0.014641 *  
+## previous_year_rating  0.333260   0.019349  17.223  < 2e-16 ***
+## length_of_service     0.022497   0.006288   3.578 0.000347 ***
+## KPIs_met..80.         1.266600   0.044031  28.766  < 2e-16 ***
+## awards_won.           1.927552   0.080178  24.041  < 2e-16 ***
+## avg_training_score    0.043088   0.001493  28.869  < 2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 21638  on 36678  degrees of freedom
+## Residual deviance: 18064  on 36671  degrees of freedom
+## AIC: 18080
+## 
+## Number of Fisher Scoring iterations: 6
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{model8 <-}\StringTok{ }\KeywordTok{glm}\NormalTok{(is_promoted }\OperatorTok{~}\StringTok{ }\NormalTok{no_of_trainings}\OperatorTok{+}\NormalTok{age}\OperatorTok{+}\NormalTok{previous_year_rating}\OperatorTok{+}\NormalTok{length_of_service}
+              \OperatorTok{+}\NormalTok{KPIs_met..}\FloatTok{80.}\OperatorTok{+}\NormalTok{awards_won.}\OperatorTok{+}\NormalTok{avg_training_score}\OperatorTok{+}\NormalTok{education_bachelors}
+              \OperatorTok{+}\NormalTok{education_masters}\OperatorTok{+}\NormalTok{education_BelowSecondary, }
+              \DataTypeTok{data=}\NormalTok{HR_TR, }\DataTypeTok{family =}\NormalTok{ binomial)}
+\KeywordTok{summary}\NormalTok{(model8)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## glm(formula = is_promoted ~ no_of_trainings + age + previous_year_rating + 
+##     length_of_service + KPIs_met..80. + awards_won. + avg_training_score + 
+##     education_bachelors + education_masters + education_BelowSecondary, 
+##     family = binomial, data = HR_TR)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -1.8488  -0.4317  -0.2783  -0.1912   2.9674  
+## 
+## Coefficients: (1 not defined because of singularities)
+##                           Estimate Std. Error z value Pr(>|z|)    
+## (Intercept)              -6.853013   0.236543 -28.972  < 2e-16 ***
+## no_of_trainings          -0.175975   0.038590  -4.560 5.11e-06 ***
+## age                      -0.014586   0.003839  -3.799 0.000145 ***
+## previous_year_rating      0.331920   0.019358  17.146  < 2e-16 ***
+## length_of_service         0.022268   0.006327   3.520 0.000432 ***
+## KPIs_met..80.             1.265419   0.044067  28.716  < 2e-16 ***
+## awards_won.               1.928757   0.080190  24.052  < 2e-16 ***
+## avg_training_score        0.042778   0.001494  28.639  < 2e-16 ***
+## education_bachelors       0.219808   0.177298   1.240 0.215064    
+## education_masters         0.433817   0.182702   2.374 0.017575 *  
+## education_BelowSecondary        NA         NA      NA       NA    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 21638  on 36678  degrees of freedom
+## Residual deviance: 18041  on 36669  degrees of freedom
+## AIC: 18061
+## 
+## Number of Fisher Scoring iterations: 6
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{model9 <-}\StringTok{ }\KeywordTok{glm}\NormalTok{(is_promoted }\OperatorTok{~}\StringTok{ }\NormalTok{no_of_trainings}\OperatorTok{+}\NormalTok{age}\OperatorTok{+}\NormalTok{previous_year_rating}\OperatorTok{+}\NormalTok{length_of_service}
+              \OperatorTok{+}\NormalTok{KPIs_met..}\FloatTok{80.}\OperatorTok{+}\NormalTok{awards_won.}\OperatorTok{+}\NormalTok{avg_training_score}\OperatorTok{+}\NormalTok{education_bachelors}
+              \OperatorTok{+}\NormalTok{education_masters}\OperatorTok{+}\NormalTok{education_BelowSecondary}\OperatorTok{+}\NormalTok{recruitment_channel_sourcing}
+              \OperatorTok{+}\NormalTok{recruitment_channel_other}\OperatorTok{+}\NormalTok{recruitment_channel_referred, }
+              \DataTypeTok{data=}\NormalTok{HR_TR, }\DataTypeTok{family =}\NormalTok{ binomial)}
+\KeywordTok{summary}\NormalTok{(model9)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## glm(formula = is_promoted ~ no_of_trainings + age + previous_year_rating + 
+##     length_of_service + KPIs_met..80. + awards_won. + avg_training_score + 
+##     education_bachelors + education_masters + education_BelowSecondary + 
+##     recruitment_channel_sourcing + recruitment_channel_other + 
+##     recruitment_channel_referred, family = binomial, data = HR_TR)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -1.8413  -0.4315  -0.2783  -0.1913   2.9610  
+## 
+## Coefficients: (2 not defined because of singularities)
+##                               Estimate Std. Error z value Pr(>|z|)    
+## (Intercept)                  -6.784288   0.261616 -25.932  < 2e-16 ***
+## no_of_trainings              -0.175381   0.038592  -4.544 5.51e-06 ***
+## age                          -0.014497   0.003841  -3.774 0.000161 ***
+## previous_year_rating          0.331637   0.019366  17.124  < 2e-16 ***
+## length_of_service             0.022289   0.006327   3.523 0.000427 ***
+## KPIs_met..80.                 1.264890   0.044070  28.702  < 2e-16 ***
+## awards_won.                   1.929986   0.080197  24.066  < 2e-16 ***
+## avg_training_score            0.042759   0.001494  28.622  < 2e-16 ***
+## education_bachelors           0.222098   0.177352   1.252 0.210460    
+## education_masters             0.437048   0.182777   2.391 0.016795 *  
+## education_BelowSecondary            NA         NA      NA       NA    
+## recruitment_channel_sourcing -0.056451   0.119674  -0.472 0.637134    
+## recruitment_channel_other    -0.088855   0.118849  -0.748 0.454684    
+## recruitment_channel_referred        NA         NA      NA       NA    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 21638  on 36678  degrees of freedom
+## Residual deviance: 18040  on 36667  degrees of freedom
+## AIC: 18064
+## 
+## Number of Fisher Scoring iterations: 6
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{model10 <-}\StringTok{ }\KeywordTok{glm}\NormalTok{(is_promoted }\OperatorTok{~}\StringTok{ }\NormalTok{no_of_trainings}\OperatorTok{+}\NormalTok{age}\OperatorTok{+}\NormalTok{previous_year_rating}\OperatorTok{+}\NormalTok{length_of_service}
+              \OperatorTok{+}\NormalTok{KPIs_met..}\FloatTok{80.}\OperatorTok{+}\NormalTok{awards_won.}\OperatorTok{+}\NormalTok{avg_training_score}\OperatorTok{+}\NormalTok{education_bachelors}
+              \OperatorTok{+}\NormalTok{education_masters}\OperatorTok{+}\NormalTok{education_BelowSecondary}\OperatorTok{+}\NormalTok{recruitment_channel_sourcing}
+              \OperatorTok{+}\NormalTok{recruitment_channel_other}\OperatorTok{+}\NormalTok{recruitment_channel_referred}
+              \OperatorTok{+}\NormalTok{gender_male}\OperatorTok{+}\NormalTok{gender_female, }
+              \DataTypeTok{data=}\NormalTok{HR_TR, }\DataTypeTok{family =}\NormalTok{ binomial)}
+\KeywordTok{summary}\NormalTok{(model10)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## glm(formula = is_promoted ~ no_of_trainings + age + previous_year_rating + 
+##     length_of_service + KPIs_met..80. + awards_won. + avg_training_score + 
+##     education_bachelors + education_masters + education_BelowSecondary + 
+##     recruitment_channel_sourcing + recruitment_channel_other + 
+##     recruitment_channel_referred + gender_male + gender_female, 
+##     family = binomial, data = HR_TR)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -1.8363  -0.4314  -0.2783  -0.1910   2.9635  
+## 
+## Coefficients: (3 not defined because of singularities)
+##                               Estimate Std. Error z value Pr(>|z|)    
+## (Intercept)                  -6.767463   0.262364 -25.794  < 2e-16 ***
+## no_of_trainings              -0.172756   0.038694  -4.465 8.02e-06 ***
+## age                          -0.014465   0.003840  -3.766 0.000166 ***
+## previous_year_rating          0.331590   0.019368  17.120  < 2e-16 ***
+## length_of_service             0.022194   0.006328   3.507 0.000453 ***
+## KPIs_met..80.                 1.263860   0.044087  28.667  < 2e-16 ***
+## awards_won.                   1.929886   0.080210  24.060  < 2e-16 ***
+## avg_training_score            0.042826   0.001497  28.601  < 2e-16 ***
+## education_bachelors           0.224725   0.177415   1.267 0.205275    
+## education_masters             0.438808   0.182823   2.400 0.016387 *  
+## education_BelowSecondary            NA         NA      NA       NA    
+## recruitment_channel_sourcing -0.057484   0.119663  -0.480 0.630953    
+## recruitment_channel_other    -0.090158   0.118841  -0.759 0.448062    
+## recruitment_channel_referred        NA         NA      NA       NA    
+## gender_male                  -0.037445   0.042903  -0.873 0.382785    
+## gender_female                       NA         NA      NA       NA    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 21638  on 36678  degrees of freedom
+## Residual deviance: 18039  on 36666  degrees of freedom
+## AIC: 18065
+## 
+## Number of Fisher Scoring iterations: 6
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#removing variables }
+
+\NormalTok{model11 <-}\StringTok{ }\KeywordTok{glm}\NormalTok{(is_promoted }\OperatorTok{~}\StringTok{ }\NormalTok{no_of_trainings}\OperatorTok{+}\NormalTok{age}\OperatorTok{+}\NormalTok{previous_year_rating}\OperatorTok{+}\NormalTok{length_of_service}
+               \OperatorTok{+}\NormalTok{KPIs_met..}\FloatTok{80.}\OperatorTok{+}\NormalTok{awards_won.}\OperatorTok{+}\NormalTok{avg_training_score}\OperatorTok{+}\NormalTok{education_bachelors}
+               \OperatorTok{+}\NormalTok{education_masters}\OperatorTok{+}\NormalTok{education_BelowSecondary}
+               \OperatorTok{+}\NormalTok{gender_male}\OperatorTok{+}\NormalTok{gender_female, }
+               \DataTypeTok{data=}\NormalTok{HR_TR, }\DataTypeTok{family =}\NormalTok{ binomial)}
+\KeywordTok{summary}\NormalTok{(model11)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## glm(formula = is_promoted ~ no_of_trainings + age + previous_year_rating + 
+##     length_of_service + KPIs_met..80. + awards_won. + avg_training_score + 
+##     education_bachelors + education_masters + education_BelowSecondary + 
+##     gender_male + gender_female, family = binomial, data = HR_TR)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -1.8439  -0.4315  -0.2784  -0.1909   2.9698  
+## 
+## Coefficients: (2 not defined because of singularities)
+##                           Estimate Std. Error z value Pr(>|z|)    
+## (Intercept)              -6.837567   0.237263 -28.819  < 2e-16 ***
+## no_of_trainings          -0.173398   0.038691  -4.482 7.41e-06 ***
+## age                      -0.014555   0.003839  -3.792 0.000150 ***
+## previous_year_rating      0.331878   0.019360  17.143  < 2e-16 ***
+## length_of_service         0.022174   0.006328   3.504 0.000458 ***
+## KPIs_met..80.             1.264411   0.044083  28.682  < 2e-16 ***
+## awards_won.               1.928644   0.080204  24.047  < 2e-16 ***
+## avg_training_score        0.042844   0.001497  28.618  < 2e-16 ***
+## education_bachelors       0.222354   0.177360   1.254 0.209957    
+## education_masters         0.435495   0.182747   2.383 0.017170 *  
+## education_BelowSecondary        NA         NA      NA       NA    
+## gender_male              -0.036864   0.042899  -0.859 0.390164    
+## gender_female                   NA         NA      NA       NA    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 21638  on 36678  degrees of freedom
+## Residual deviance: 18041  on 36668  degrees of freedom
+## AIC: 18063
+## 
+## Number of Fisher Scoring iterations: 6
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{model12 <-}\StringTok{ }\KeywordTok{glm}\NormalTok{(is_promoted }\OperatorTok{~}\NormalTok{no_of_trainings}\OperatorTok{+}\NormalTok{previous_year_rating}\OperatorTok{+}\NormalTok{length_of_service}
+               \OperatorTok{+}\NormalTok{KPIs_met..}\FloatTok{80.}\OperatorTok{+}\NormalTok{awards_won.}\OperatorTok{+}\NormalTok{avg_training_score}\OperatorTok{+}\NormalTok{education_bachelors}
+               \OperatorTok{+}\NormalTok{education_masters}\OperatorTok{+}\NormalTok{education_BelowSecondary}
+               \OperatorTok{+}\NormalTok{gender_male}\OperatorTok{+}\NormalTok{gender_female, }
+               \DataTypeTok{data=}\NormalTok{HR_TR, }\DataTypeTok{family =}\NormalTok{ binomial)}
+\KeywordTok{summary}\NormalTok{(model12)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## glm(formula = is_promoted ~ no_of_trainings + previous_year_rating + 
+##     length_of_service + KPIs_met..80. + awards_won. + avg_training_score + 
+##     education_bachelors + education_masters + education_BelowSecondary + 
+##     gender_male + gender_female, family = binomial, data = HR_TR)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -1.8417  -0.4320  -0.2792  -0.1906   2.9779  
+## 
+## Coefficients: (2 not defined because of singularities)
+##                           Estimate Std. Error z value Pr(>|z|)    
+## (Intercept)              -7.193811   0.218396 -32.939  < 2e-16 ***
+## no_of_trainings          -0.165763   0.038567  -4.298 1.72e-05 ***
+## previous_year_rating      0.331431   0.019338  17.139  < 2e-16 ***
+## length_of_service         0.007567   0.005002   1.513   0.1303    
+## KPIs_met..80.             1.262273   0.044053  28.653  < 2e-16 ***
+## awards_won.               1.915615   0.080139  23.904  < 2e-16 ***
+## avg_training_score        0.043269   0.001495  28.944  < 2e-16 ***
+## education_bachelors       0.139139   0.175978   0.791   0.4291    
+## education_masters         0.298825   0.179145   1.668   0.0953 .  
+## education_BelowSecondary        NA         NA      NA       NA    
+## gender_male              -0.038286   0.042882  -0.893   0.3720    
+## gender_female                   NA         NA      NA       NA    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 21638  on 36678  degrees of freedom
+## Residual deviance: 18055  on 36669  degrees of freedom
+## AIC: 18075
+## 
+## Number of Fisher Scoring iterations: 6
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{model13 <-}\StringTok{ }\KeywordTok{glm}\NormalTok{(is_promoted }\OperatorTok{~}\NormalTok{age}\OperatorTok{+}\NormalTok{previous_year_rating}\OperatorTok{+}\NormalTok{length_of_service}
+               \OperatorTok{+}\NormalTok{KPIs_met..}\FloatTok{80.}\OperatorTok{+}\NormalTok{awards_won.}\OperatorTok{+}\NormalTok{avg_training_score}\OperatorTok{+}\NormalTok{education_bachelors}
+               \OperatorTok{+}\NormalTok{education_masters}\OperatorTok{+}\NormalTok{education_BelowSecondary}
+               \OperatorTok{+}\NormalTok{gender_male}\OperatorTok{+}\NormalTok{gender_female, }
+               \DataTypeTok{data=}\NormalTok{HR_TR, }\DataTypeTok{family =}\NormalTok{ binomial)}
+\KeywordTok{summary}\NormalTok{(model13)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## glm(formula = is_promoted ~ age + previous_year_rating + length_of_service + 
+##     KPIs_met..80. + awards_won. + avg_training_score + education_bachelors + 
+##     education_masters + education_BelowSecondary + gender_male + 
+##     gender_female, family = binomial, data = HR_TR)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -1.8188  -0.4311  -0.2787  -0.1919   2.9697  
+## 
+## Coefficients: (2 not defined because of singularities)
+##                           Estimate Std. Error z value Pr(>|z|)    
+## (Intercept)              -7.035075   0.233387 -30.143  < 2e-16 ***
+## age                      -0.013637   0.003831  -3.560 0.000371 ***
+## previous_year_rating      0.333215   0.019364  17.208  < 2e-16 ***
+## length_of_service         0.022375   0.006325   3.538 0.000403 ***
+## KPIs_met..80.             1.267621   0.044072  28.762  < 2e-16 ***
+## awards_won.               1.931730   0.080107  24.114  < 2e-16 ***
+## avg_training_score        0.042236   0.001490  28.339  < 2e-16 ***
+## education_bachelors       0.218669   0.177311   1.233 0.217480    
+## education_masters         0.433936   0.182697   2.375 0.017541 *  
+## education_BelowSecondary        NA         NA      NA       NA    
+## gender_male              -0.053030   0.042760  -1.240 0.214913    
+## gender_female                   NA         NA      NA       NA    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 21638  on 36678  degrees of freedom
+## Residual deviance: 18062  on 36669  degrees of freedom
+## AIC: 18082
+## 
+## Number of Fisher Scoring iterations: 6
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{model14 <-}\StringTok{ }\KeywordTok{glm}\NormalTok{(is_promoted }\OperatorTok{~}\NormalTok{no_of_trainings}\OperatorTok{+}\NormalTok{previous_year_rating}\OperatorTok{+}\NormalTok{length_of_service}
+               \OperatorTok{+}\NormalTok{KPIs_met..}\FloatTok{80.}\OperatorTok{+}\NormalTok{awards_won.}\OperatorTok{+}\NormalTok{avg_training_score}\OperatorTok{+}\NormalTok{education_bachelors}
+               \OperatorTok{+}\NormalTok{education_masters}\OperatorTok{+}\NormalTok{education_BelowSecondary, }
+               \DataTypeTok{data=}\NormalTok{HR_TR, }\DataTypeTok{family =}\NormalTok{ binomial)}
+\KeywordTok{summary}\NormalTok{(model14)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## glm(formula = is_promoted ~ no_of_trainings + previous_year_rating + 
+##     length_of_service + KPIs_met..80. + awards_won. + avg_training_score + 
+##     education_bachelors + education_masters + education_BelowSecondary, 
+##     family = binomial, data = HR_TR)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -1.8467  -0.4321  -0.2789  -0.1911   2.9753  
+## 
+## Coefficients: (1 not defined because of singularities)
+##                           Estimate Std. Error z value Pr(>|z|)    
+## (Intercept)              -7.210661   0.217526 -33.149  < 2e-16 ***
+## no_of_trainings          -0.168413   0.038469  -4.378  1.2e-05 ***
+## previous_year_rating      0.331471   0.019336  17.143  < 2e-16 ***
+## length_of_service         0.007635   0.005001   1.527   0.1268    
+## KPIs_met..80.             1.263332   0.044036  28.688  < 2e-16 ***
+## awards_won.               1.915689   0.080126  23.909  < 2e-16 ***
+## avg_training_score        0.043201   0.001491  28.965  < 2e-16 ***
+## education_bachelors       0.136309   0.175909   0.775   0.4384    
+## education_masters         0.296769   0.179090   1.657   0.0975 .  
+## education_BelowSecondary        NA         NA      NA       NA    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 21638  on 36678  degrees of freedom
+## Residual deviance: 18056  on 36670  degrees of freedom
+## AIC: 18074
+## 
+## Number of Fisher Scoring iterations: 6
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{model15 <-}\StringTok{ }\KeywordTok{glm}\NormalTok{(is_promoted }\OperatorTok{~}\NormalTok{no_of_trainings}\OperatorTok{+}\NormalTok{previous_year_rating}\OperatorTok{+}\NormalTok{length_of_service}
+               \OperatorTok{+}\NormalTok{KPIs_met..}\FloatTok{80.}\OperatorTok{+}\NormalTok{awards_won.}\OperatorTok{+}\NormalTok{avg_training_score}\OperatorTok{+}\NormalTok{education_bachelors}
+               \OperatorTok{+}\NormalTok{education_masters, }
+               \DataTypeTok{data=}\NormalTok{HR_TR, }\DataTypeTok{family =}\NormalTok{ binomial)}
+\KeywordTok{summary}\NormalTok{(model15)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## glm(formula = is_promoted ~ no_of_trainings + previous_year_rating + 
+##     length_of_service + KPIs_met..80. + awards_won. + avg_training_score + 
+##     education_bachelors + education_masters, family = binomial, 
+##     data = HR_TR)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -1.8467  -0.4321  -0.2789  -0.1911   2.9753  
+## 
+## Coefficients:
+##                       Estimate Std. Error z value Pr(>|z|)    
+## (Intercept)          -7.210661   0.217526 -33.149  < 2e-16 ***
+## no_of_trainings      -0.168413   0.038469  -4.378  1.2e-05 ***
+## previous_year_rating  0.331471   0.019336  17.143  < 2e-16 ***
+## length_of_service     0.007635   0.005001   1.527   0.1268    
+## KPIs_met..80.         1.263332   0.044036  28.688  < 2e-16 ***
+## awards_won.           1.915689   0.080126  23.909  < 2e-16 ***
+## avg_training_score    0.043201   0.001491  28.965  < 2e-16 ***
+## education_bachelors   0.136309   0.175909   0.775   0.4384    
+## education_masters     0.296769   0.179090   1.657   0.0975 .  
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 21638  on 36678  degrees of freedom
+## Residual deviance: 18056  on 36670  degrees of freedom
+## AIC: 18074
+## 
+## Number of Fisher Scoring iterations: 6
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{model16 <-}\StringTok{ }\KeywordTok{glm}\NormalTok{(is_promoted }\OperatorTok{~}\NormalTok{no_of_trainings}\OperatorTok{+}\NormalTok{previous_year_rating}
+               \OperatorTok{+}\NormalTok{KPIs_met..}\FloatTok{80.}\OperatorTok{+}\NormalTok{awards_won.}\OperatorTok{+}\NormalTok{avg_training_score}\OperatorTok{+}\NormalTok{education_bachelors}
+               \OperatorTok{+}\NormalTok{education_masters, }
+               \DataTypeTok{data=}\NormalTok{HR_TR, }\DataTypeTok{family =}\NormalTok{ binomial)}
+\KeywordTok{summary}\NormalTok{(model16)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## glm(formula = is_promoted ~ no_of_trainings + previous_year_rating + 
+##     KPIs_met..80. + awards_won. + avg_training_score + education_bachelors + 
+##     education_masters, family = binomial, data = HR_TR)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -1.8503  -0.4330  -0.2793  -0.1906   2.9715  
+## 
+## Coefficients:
+##                       Estimate Std. Error z value Pr(>|z|)    
+## (Intercept)          -7.189186   0.216957 -33.136  < 2e-16 ***
+## no_of_trainings      -0.171147   0.038437  -4.453 8.48e-06 ***
+## previous_year_rating  0.333962   0.019275  17.327  < 2e-16 ***
+## KPIs_met..80.         1.256901   0.043804  28.694  < 2e-16 ***
+## awards_won.           1.907837   0.079919  23.872  < 2e-16 ***
+## avg_training_score    0.043081   0.001488  28.946  < 2e-16 ***
+## education_bachelors   0.161263   0.175062   0.921    0.357    
+## education_masters     0.338078   0.176928   1.911    0.056 .  
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 21638  on 36678  degrees of freedom
+## Residual deviance: 18058  on 36671  degrees of freedom
+## AIC: 18074
+## 
+## Number of Fisher Scoring iterations: 6
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{model17 <-}\StringTok{ }\KeywordTok{glm}\NormalTok{(is_promoted }\OperatorTok{~}\StringTok{ }\NormalTok{no_of_trainings}\OperatorTok{+}\NormalTok{age}\OperatorTok{+}\NormalTok{previous_year_rating}\OperatorTok{+}\NormalTok{length_of_service}
+               \OperatorTok{+}\NormalTok{KPIs_met..}\FloatTok{80.}\OperatorTok{+}\NormalTok{awards_won.}\OperatorTok{+}\NormalTok{avg_training_score}\OperatorTok{+}\NormalTok{education_bachelors}
+               \OperatorTok{+}\NormalTok{education_masters}\OperatorTok{+}\NormalTok{education_BelowSecondary}\OperatorTok{+}\NormalTok{recruitment_channel_sourcing}
+               \OperatorTok{+}\NormalTok{recruitment_channel_other}\OperatorTok{+}\NormalTok{recruitment_channel_referred, }
+               \DataTypeTok{data=}\NormalTok{HR_TR, }\DataTypeTok{family =}\NormalTok{ binomial)}
+\KeywordTok{summary}\NormalTok{(model17)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## glm(formula = is_promoted ~ no_of_trainings + age + previous_year_rating + 
+##     length_of_service + KPIs_met..80. + awards_won. + avg_training_score + 
+##     education_bachelors + education_masters + education_BelowSecondary + 
+##     recruitment_channel_sourcing + recruitment_channel_other + 
+##     recruitment_channel_referred, family = binomial, data = HR_TR)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -1.8413  -0.4315  -0.2783  -0.1913   2.9610  
+## 
+## Coefficients: (2 not defined because of singularities)
+##                               Estimate Std. Error z value Pr(>|z|)    
+## (Intercept)                  -6.784288   0.261616 -25.932  < 2e-16 ***
+## no_of_trainings              -0.175381   0.038592  -4.544 5.51e-06 ***
+## age                          -0.014497   0.003841  -3.774 0.000161 ***
+## previous_year_rating          0.331637   0.019366  17.124  < 2e-16 ***
+## length_of_service             0.022289   0.006327   3.523 0.000427 ***
+## KPIs_met..80.                 1.264890   0.044070  28.702  < 2e-16 ***
+## awards_won.                   1.929986   0.080197  24.066  < 2e-16 ***
+## avg_training_score            0.042759   0.001494  28.622  < 2e-16 ***
+## education_bachelors           0.222098   0.177352   1.252 0.210460    
+## education_masters             0.437048   0.182777   2.391 0.016795 *  
+## education_BelowSecondary            NA         NA      NA       NA    
+## recruitment_channel_sourcing -0.056451   0.119674  -0.472 0.637134    
+## recruitment_channel_other    -0.088855   0.118849  -0.748 0.454684    
+## recruitment_channel_referred        NA         NA      NA       NA    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 21638  on 36678  degrees of freedom
+## Residual deviance: 18040  on 36667  degrees of freedom
+## AIC: 18064
+## 
+## Number of Fisher Scoring iterations: 6
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#so far model 11}
+\CommentTok{#logistic regression prediction}
+\CommentTok{#prediction and confusion matrix}
+\NormalTok{res <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(model11,HR_TS, }\DataTypeTok{type=}\StringTok{'response'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in predict.lm(object, newdata, se.fit, scale = 1, type = if (type == :
+## prediction from a rank-deficient fit may be misleading
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{head}\NormalTok{(res)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##          2          5          7         13         16         40 
+## 0.05004997 0.03513319 0.02645485 0.08282001 0.01420662 0.11265634
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{head}\NormalTok{(HR_TS}\OperatorTok{$}\NormalTok{is_promoted)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0 0 0 0 0 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{table}\NormalTok{(}\DataTypeTok{Actualvalue=}\NormalTok{HR_TS}\OperatorTok{$}\NormalTok{is_promoted, }\DataTypeTok{PredictedValue=}\NormalTok{ res}\OperatorTok{>}\FloatTok{0.2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##            PredictedValue
+## Actualvalue FALSE  TRUE
+##           0 13096  1260
+##           1   873   491
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{table}\NormalTok{(}\DataTypeTok{Actualvalue=}\NormalTok{HR_TS}\OperatorTok{$}\NormalTok{is_promoted, }\DataTypeTok{PredictedValue=}\NormalTok{ res}\OperatorTok{>}\FloatTok{0.3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##            PredictedValue
+## Actualvalue FALSE  TRUE
+##           0 13861   495
+##           1  1089   275
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{table}\NormalTok{(}\DataTypeTok{Actualvalue=}\NormalTok{HR_TS}\OperatorTok{$}\NormalTok{is_promoted, }\DataTypeTok{PredictedValue=}\NormalTok{ res}\OperatorTok{>}\FloatTok{0.4}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##            PredictedValue
+## Actualvalue FALSE  TRUE
+##           0 14238   118
+##           1  1223   141
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{table}\NormalTok{(}\DataTypeTok{Actualvalue=}\NormalTok{HR_TS}\OperatorTok{$}\NormalTok{is_promoted, }\DataTypeTok{PredictedValue=}\NormalTok{ res}\OperatorTok{>}\FloatTok{0.45}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##            PredictedValue
+## Actualvalue FALSE  TRUE
+##           0 14277    79
+##           1  1259   105
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{table}\NormalTok{(}\DataTypeTok{Actualvalue=}\NormalTok{HR_TS}\OperatorTok{$}\NormalTok{is_promoted, }\DataTypeTok{PredictedValue=}\NormalTok{ res}\OperatorTok{>}\FloatTok{0.5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##            PredictedValue
+## Actualvalue FALSE  TRUE
+##           0 14295    61
+##           1  1283    81
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{table}\NormalTok{(}\DataTypeTok{Actualvalue=}\NormalTok{HR_TS}\OperatorTok{$}\NormalTok{is_promoted, }\DataTypeTok{PredictedValue=}\NormalTok{ res}\OperatorTok{>}\FloatTok{0.6}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##            PredictedValue
+## Actualvalue FALSE  TRUE
+##           0 14322    34
+##           1  1306    58
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#highest accuracy 91.6%}
+
+\CommentTok{#ROCR Curve }
+
+\NormalTok{ROCRpred <-}\StringTok{ }\KeywordTok{prediction}\NormalTok{(res,HR_TS}\OperatorTok{$}\NormalTok{is_promoted)}
+\NormalTok{ROCRpref <-}\StringTok{ }\KeywordTok{performance}\NormalTok{(ROCRpred, }\StringTok{"tpr"}\NormalTok{,}\StringTok{"fpr"}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(ROCRpref,}\DataTypeTok{colorize =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{print.cutoffs.at=}\KeywordTok{seq}\NormalTok{(}\FloatTok{0.2}\NormalTok{,}\DataTypeTok{by=}\FloatTok{0.3}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{HR-Case-Study_files/figure-latex/unnamed-chunk-1-9.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Decision tree }
+
+\CommentTok{#without any splitting criteria}
+\NormalTok{model20 <-}\StringTok{ }\KeywordTok{rpart}\NormalTok{(is_promoted }\OperatorTok{~}\StringTok{ }\NormalTok{no_of_trainings}\OperatorTok{+}\NormalTok{age}\OperatorTok{+}\NormalTok{previous_year_rating}\OperatorTok{+}\NormalTok{length_of_service}
+                 \OperatorTok{+}\NormalTok{KPIs_met..}\FloatTok{80.}\OperatorTok{+}\NormalTok{awards_won.}\OperatorTok{+}\NormalTok{avg_training_score}\OperatorTok{+}\NormalTok{education_bachelors}
+                 \OperatorTok{+}\NormalTok{education_masters}\OperatorTok{+}\NormalTok{education_BelowSecondary}
+                 \OperatorTok{+}\NormalTok{gender_male}\OperatorTok{+}\NormalTok{gender_female,  }
+                 \DataTypeTok{data=}\NormalTok{HR_TR, }
+                 \DataTypeTok{method =} \StringTok{"class"}\NormalTok{)}
+\NormalTok{model20}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## n= 36679 
+## 
+## node), split, n, loss, yval, (yprob)
+##       * denotes terminal node
+## 
+## 1) root 36679 3182 0 (0.91324736 0.08675264)  
+##   2) avg_training_score< 90.5 36290 2836 0 (0.92185175 0.07814825) *
+##   3) avg_training_score>=90.5 389   43 1 (0.11053985 0.88946015) *
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{fancyRpartPlot}\NormalTok{(model20)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{HR-Case-Study_files/figure-latex/unnamed-chunk-1-10.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pred2 <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(model20, }\DataTypeTok{newdata =}\NormalTok{ HR_TS, }\DataTypeTok{type =} \StringTok{"class"}\NormalTok{)}
+\KeywordTok{confusionMatrix}\NormalTok{(}\KeywordTok{table}\NormalTok{(pred2,HR_TS}\OperatorTok{$}\NormalTok{is_promoted))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Confusion Matrix and Statistics
+## 
+##      
+## pred2     0     1
+##     0 14333  1216
+##     1    23   148
+##                                           
+##                Accuracy : 0.9212          
+##                  95% CI : (0.9169, 0.9253)
+##     No Information Rate : 0.9132          
+##     P-Value [Acc > NIR] : 0.0001757       
+##                                           
+##                   Kappa : 0.1769          
+##                                           
+##  Mcnemar's Test P-Value : < 2.2e-16       
+##                                           
+##             Sensitivity : 0.9984          
+##             Specificity : 0.1085          
+##          Pos Pred Value : 0.9218          
+##          Neg Pred Value : 0.8655          
+##              Prevalence : 0.9132          
+##          Detection Rate : 0.9118          
+##    Detection Prevalence : 0.9891          
+##       Balanced Accuracy : 0.5535          
+##                                           
+##        'Positive' Class : 0               
+## 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#information gain }
+\NormalTok{model18 <-}\StringTok{ }\KeywordTok{rpart}\NormalTok{(is_promoted }\OperatorTok{~}\StringTok{ }\NormalTok{no_of_trainings}\OperatorTok{+}\NormalTok{age}\OperatorTok{+}\NormalTok{previous_year_rating}\OperatorTok{+}\NormalTok{length_of_service}
+               \OperatorTok{+}\NormalTok{KPIs_met..}\FloatTok{80.}\OperatorTok{+}\NormalTok{awards_won.}\OperatorTok{+}\NormalTok{avg_training_score}\OperatorTok{+}\NormalTok{education_bachelors}
+               \OperatorTok{+}\NormalTok{education_masters}\OperatorTok{+}\NormalTok{education_BelowSecondary}
+               \OperatorTok{+}\NormalTok{gender_male}\OperatorTok{+}\NormalTok{gender_female,  }
+               \DataTypeTok{data=}\NormalTok{HR_TR, }
+               \DataTypeTok{method =} \StringTok{"class"}\NormalTok{,}
+               \DataTypeTok{parms =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{split =} \StringTok{"information"}\NormalTok{))}
+\NormalTok{model18}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## n= 36679 
+## 
+## node), split, n, loss, yval, (yprob)
+##       * denotes terminal node
+## 
+## 1) root 36679 3182 0 (0.91324736 0.08675264)  
+##   2) KPIs_met..80.< 0.5 23692  958 0 (0.95956441 0.04043559) *
+##   3) KPIs_met..80.>=0.5 12987 2224 0 (0.82875183 0.17124817)  
+##     6) avg_training_score< 89.5 12687 1964 0 (0.84519587 0.15480413) *
+##     7) avg_training_score>=89.5 300   40 1 (0.13333333 0.86666667) *
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{fancyRpartPlot}\NormalTok{(model18)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{HR-Case-Study_files/figure-latex/unnamed-chunk-1-11.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pred <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(model18, }\DataTypeTok{newdata =}\NormalTok{ HR_TS, }\DataTypeTok{type =} \StringTok{"class"}\NormalTok{)}
+\KeywordTok{confusionMatrix}\NormalTok{(}\KeywordTok{table}\NormalTok{(pred,HR_TS}\OperatorTok{$}\NormalTok{is_promoted))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Confusion Matrix and Statistics
+## 
+##     
+## pred     0     1
+##    0 14339  1251
+##    1    17   113
+##                                          
+##                Accuracy : 0.9193         
+##                  95% CI : (0.915, 0.9235)
+##     No Information Rate : 0.9132         
+##     P-Value [Acc > NIR] : 0.003154       
+##                                          
+##                   Kappa : 0.1383         
+##                                          
+##  Mcnemar's Test P-Value : < 2.2e-16      
+##                                          
+##             Sensitivity : 0.99882        
+##             Specificity : 0.08284        
+##          Pos Pred Value : 0.91976        
+##          Neg Pred Value : 0.86923        
+##              Prevalence : 0.91323        
+##          Detection Rate : 0.91215        
+##    Detection Prevalence : 0.99173        
+##       Balanced Accuracy : 0.54083        
+##                                          
+##        'Positive' Class : 0              
+## 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#gini index}
+\NormalTok{model19 <-}\StringTok{ }\KeywordTok{rpart}\NormalTok{(is_promoted }\OperatorTok{~}\StringTok{ }\NormalTok{no_of_trainings}\OperatorTok{+}\NormalTok{age}\OperatorTok{+}\NormalTok{previous_year_rating}\OperatorTok{+}\NormalTok{length_of_service}
+                 \OperatorTok{+}\NormalTok{KPIs_met..}\FloatTok{80.}\OperatorTok{+}\NormalTok{awards_won.}\OperatorTok{+}\NormalTok{avg_training_score}\OperatorTok{+}\NormalTok{education_bachelors}
+                 \OperatorTok{+}\NormalTok{education_masters}\OperatorTok{+}\NormalTok{education_BelowSecondary}
+                 \OperatorTok{+}\NormalTok{gender_male}\OperatorTok{+}\NormalTok{gender_female,  }
+                 \DataTypeTok{data=}\NormalTok{HR_TR, }
+                 \DataTypeTok{method =} \StringTok{"class"}\NormalTok{,}
+                 \DataTypeTok{parms =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{split =} \StringTok{"gini"}\NormalTok{))}
+\NormalTok{model19}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## n= 36679 
+## 
+## node), split, n, loss, yval, (yprob)
+##       * denotes terminal node
+## 
+## 1) root 36679 3182 0 (0.91324736 0.08675264)  
+##   2) avg_training_score< 90.5 36290 2836 0 (0.92185175 0.07814825) *
+##   3) avg_training_score>=90.5 389   43 1 (0.11053985 0.88946015) *
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{fancyRpartPlot}\NormalTok{(model19)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{HR-Case-Study_files/figure-latex/unnamed-chunk-1-12.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pred0 <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(model19, }\DataTypeTok{newdata =}\NormalTok{ HR_TS, }\DataTypeTok{type =} \StringTok{"class"}\NormalTok{)}
+\KeywordTok{confusionMatrix}\NormalTok{(}\KeywordTok{table}\NormalTok{(pred0,HR_TS}\OperatorTok{$}\NormalTok{is_promoted))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Confusion Matrix and Statistics
+## 
+##      
+## pred0     0     1
+##     0 14333  1216
+##     1    23   148
+##                                           
+##                Accuracy : 0.9212          
+##                  95% CI : (0.9169, 0.9253)
+##     No Information Rate : 0.9132          
+##     P-Value [Acc > NIR] : 0.0001757       
+##                                           
+##                   Kappa : 0.1769          
+##                                           
+##  Mcnemar's Test P-Value : < 2.2e-16       
+##                                           
+##             Sensitivity : 0.9984          
+##             Specificity : 0.1085          
+##          Pos Pred Value : 0.9218          
+##          Neg Pred Value : 0.8655          
+##              Prevalence : 0.9132          
+##          Detection Rate : 0.9118          
+##    Detection Prevalence : 0.9891          
+##       Balanced Accuracy : 0.5535          
+##                                           
+##        'Positive' Class : 0               
+## 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{##Running our finals models to predict the testing data }
+
+\NormalTok{TrainHR <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"promotion_ts.csv"}\NormalTok{, }\DataTypeTok{stringsAsFactors =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{summary}\NormalTok{(TrainHR)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   employee_id                department         region     
+##  Min.   :    3   Sales & Marketing:7315   region_2 : 5299  
+##  1st Qu.:19370   Operations       :4764   region_22: 2739  
+##  Median :38964   Procurement      :3020   region_7 : 1982  
+##  Mean   :39041   Technology       :3011   region_13: 1167  
+##  3rd Qu.:58690   Analytics        :2319   region_15: 1130  
+##  Max.   :78295   Finance          :1091   region_26: 1011  
+##                  (Other)          :1970   (Other)  :10162  
+##             education     gender    recruitment_channel no_of_trainings
+##                  : 1034   f: 6894   other   :13078      Min.   :1.000  
+##  Bachelor's      :15578   m:16596   referred:  451      1st Qu.:1.000  
+##  Below Secondary :  374             sourcing: 9961      Median :1.000  
+##  Master's & above: 6504                                 Mean   :1.254  
+##                                                         3rd Qu.:1.000  
+##                                                         Max.   :9.000  
+##                                                                        
+##       age        previous_year_rating length_of_service KPIs_met..80.   
+##  Min.   :20.00   Min.   :1.000        Min.   : 1.00     Min.   :0.0000  
+##  1st Qu.:29.00   1st Qu.:3.000        1st Qu.: 3.00     1st Qu.:0.0000  
+##  Median :33.00   Median :3.000        Median : 5.00     Median :0.0000  
+##  Mean   :34.78   Mean   :3.339        Mean   : 5.81     Mean   :0.3588  
+##  3rd Qu.:39.00   3rd Qu.:4.000        3rd Qu.: 7.00     3rd Qu.:1.0000  
+##  Max.   :60.00   Max.   :5.000        Max.   :34.00     Max.   :1.0000  
+##                  NA's   :1812                                           
+##   awards_won.      avg_training_score
+##  Min.   :0.00000   Min.   :39.00     
+##  1st Qu.:0.00000   1st Qu.:51.00     
+##  Median :0.00000   Median :60.00     
+##  Mean   :0.02278   Mean   :63.26     
+##  3rd Qu.:0.00000   3rd Qu.:76.00     
+##  Max.   :1.00000   Max.   :99.00     
+## 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Cleaning the dataset by removing and imputing rows }
+
+
+\CommentTok{#mode imputation on column previous year rating}
+\KeywordTok{table}\NormalTok{(TrainHR}\OperatorTok{$}\NormalTok{previous_year_rating)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##    1    2    3    4    5 
+## 2680 1731 7921 4249 5097
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{TrainHR}\OperatorTok{$}\NormalTok{previous_year_rating[}\KeywordTok{is.na}\NormalTok{(TrainHR}\OperatorTok{$}\NormalTok{previous_year_rating)] <-}\StringTok{ }\DecValTok{3}
+\KeywordTok{table}\NormalTok{(TrainHR}\OperatorTok{$}\NormalTok{previous_year_rating)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##    1    2    3    4    5 
+## 2680 1731 9733 4249 5097
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{summary}\NormalTok{(TrainHR}\OperatorTok{$}\NormalTok{previous_year_rating)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   1.000   3.000   3.000   3.313   4.000   5.000
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#NA imputing on empty cells on column education}
+\NormalTok{TrainHR[}\KeywordTok{which}\NormalTok{(TrainHR}\OperatorTok{$}\NormalTok{education}\OperatorTok{==}\StringTok{""}\NormalTok{),]}\OperatorTok{$}\NormalTok{education <-}\OtherTok{NA}
+\KeywordTok{summary}\NormalTok{(TrainHR}\OperatorTok{$}\NormalTok{education)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                        Bachelor's  Below Secondary Master's & above 
+##                0            15578              374             6504 
+##             NA's 
+##             1034
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#removing all NA rows from the dataset}
+\NormalTok{TrainHR <-}\StringTok{ }\KeywordTok{na.omit}\NormalTok{(TrainHR)}
+\KeywordTok{summary}\NormalTok{(TrainHR)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   employee_id                department         region    
+##  Min.   :    3   Sales & Marketing:6652   region_2 :4923  
+##  1st Qu.:19380   Operations       :4672   region_22:2594  
+##  Median :38936   Procurement      :2980   region_7 :1893  
+##  Mean   :39026   Technology       :2969   region_13:1144  
+##  3rd Qu.:58704   Analytics        :2164   region_15:1057  
+##  Max.   :78295   Finance          :1077   region_26: 969  
+##                  (Other)          :1942   (Other)  :9876  
+##             education     gender    recruitment_channel no_of_trainings
+##                  :    0   f: 6715   other   :12499      Min.   :1.000  
+##  Bachelor's      :15578   m:15741   referred:  448      1st Qu.:1.000  
+##  Below Secondary :  374             sourcing: 9509      Median :1.000  
+##  Master's & above: 6504                                 Mean   :1.257  
+##                                                         3rd Qu.:1.000  
+##                                                         Max.   :9.000  
+##                                                                        
+##       age        previous_year_rating length_of_service KPIs_met..80.   
+##  Min.   :20.00   Min.   :1.000        Min.   : 1.000    Min.   :0.0000  
+##  1st Qu.:29.00   1st Qu.:3.000        1st Qu.: 3.000    1st Qu.:0.0000  
+##  Median :33.00   Median :3.000        Median : 5.000    Median :0.0000  
+##  Mean   :34.97   Mean   :3.323        Mean   : 5.878    Mean   :0.3629  
+##  3rd Qu.:39.00   3rd Qu.:4.000        3rd Qu.: 7.000    3rd Qu.:1.0000  
+##  Max.   :60.00   Max.   :5.000        Max.   :34.000    Max.   :1.0000  
+##                                                                         
+##   awards_won.     avg_training_score
+##  Min.   :0.0000   Min.   :39.00     
+##  1st Qu.:0.0000   1st Qu.:51.00     
+##  Median :0.0000   Median :60.00     
+##  Mean   :0.0232   Mean   :63.48     
+##  3rd Qu.:0.0000   3rd Qu.:76.00     
+##  Max.   :1.0000   Max.   :99.00     
+## 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#To create dummy variables}
+\NormalTok{TrainHR}\OperatorTok{$}\NormalTok{gender_male<-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(TrainHR}\OperatorTok{$}\NormalTok{gender }\OperatorTok{==}\StringTok{ "m"}\NormalTok{, }\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{)}
+\NormalTok{TrainHR}\OperatorTok{$}\NormalTok{gender_female<-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(TrainHR}\OperatorTok{$}\NormalTok{gender }\OperatorTok{==}\StringTok{ "f"}\NormalTok{, }\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{)}
+\NormalTok{TrainHR}\OperatorTok{$}\NormalTok{education_bachelors<-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(TrainHR}\OperatorTok{$}\NormalTok{education }\OperatorTok{==}\StringTok{ "Bachelor's"}\NormalTok{, }\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{)}
+\NormalTok{TrainHR}\OperatorTok{$}\NormalTok{education_masters<-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(TrainHR}\OperatorTok{$}\NormalTok{education }\OperatorTok{==}\StringTok{ "Master's & above"}\NormalTok{, }\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{)}
+\NormalTok{TrainHR}\OperatorTok{$}\NormalTok{education_BelowSecondary<-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(TrainHR}\OperatorTok{$}\NormalTok{education }\OperatorTok{==}\StringTok{ "Below Secondary"}\NormalTok{, }\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{)}
+
+
+\CommentTok{#Logistic regression prediction}
+\NormalTok{res1 <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(model11,TrainHR, }\DataTypeTok{type=}\StringTok{'response'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in predict.lm(object, newdata, se.fit, scale = 1, type = if (type == :
+## prediction from a rank-deficient fit may be misleading
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{table}\NormalTok{(}\DataTypeTok{PredictedValue=}\NormalTok{ res1}\OperatorTok{>}\FloatTok{0.45}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## PredictedValue
+## FALSE  TRUE 
+## 22187   269
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#decision tree Gini index model prediction}
+\NormalTok{pred1 <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(model19, }\DataTypeTok{newdata =}\NormalTok{ TrainHR, }\DataTypeTok{type =} \StringTok{"class"}\NormalTok{)}
+\KeywordTok{table}\NormalTok{(pred1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## pred1
+##     0     1 
+## 22225   231
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{TrainHR}\OperatorTok{$}\NormalTok{Promoted_by_LR <-}\StringTok{ }\NormalTok{(}\DataTypeTok{PredictedValue=}\NormalTok{ res1}\OperatorTok{>}\FloatTok{0.45}\NormalTok{) }
+\NormalTok{TrainHR}\OperatorTok{$}\NormalTok{Promoted_by_LR<-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(TrainHR}\OperatorTok{$}\NormalTok{Promoted_by_LR }\OperatorTok{==}\StringTok{ "TRUE"}\NormalTok{, }\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{)}
+\NormalTok{TrainHR}\OperatorTok{$}\NormalTok{Promoted_by_GINI <-}\StringTok{ }\NormalTok{pred1}
+\KeywordTok{table}\NormalTok{(TrainHR}\OperatorTok{$}\NormalTok{Promoted_by_LR)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##     0     1 
+## 22187   269
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{table}\NormalTok{(TrainHR}\OperatorTok{$}\NormalTok{Promoted_by_GINI)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##     0     1 
+## 22225   231
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{FINALDATA_PREDICTION <-}\StringTok{ }\KeywordTok{write.csv}\NormalTok{(TrainHR , }\StringTok{"FINALDATA_PREDICTION.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\end{document}
